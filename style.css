@@ -43,6 +43,18 @@ div#score p {
     margin: 15px 0 0 92.5px;
 }
 
+@media (max-width: 450px) {
+    div#score p {
+        margin: 10px 0 0 68px;
+    }
+}
+
+@media (max-width: 400px) {
+    div#score p {
+        margin: 10px 0 0 55px;
+    }
+}
+
 div#img-res {
     height: 125px;
     display: flex;
