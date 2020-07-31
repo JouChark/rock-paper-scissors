@@ -35,6 +35,14 @@ div#result {
     color: #000;
 }
 
+div#score {
+    display: flex;
+}
+
+div#score p {
+    margin: 15px 0 0 92.5px;
+}
+
 div#img-res {
     height: 125px;
     display: flex;

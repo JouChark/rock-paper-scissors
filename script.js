@@ -48,12 +48,13 @@ function getResult(ps, cs) {
 
 function showResult() {
     let res = document.getElementById('res')
-    let cont = document.getElementById('cont')
+    let score = document.getElementById('score')
     let fRes = document.getElementById('fRes')
     let imgR = document.getElementById('imgR')
     let imgL = document.getElementById('imgL')
     res.innerHTML = getResult(playerSelection, computerSelection)
-    cont.innerHTML = `Player ${playerScore} X ${computerScore} IA`
+    score.innerHTML = `<p><strong>Player</strong></p> <p>${playerScore} X ${computerScore}</p>
+                    <p><strong>IA<strong></p>`
     imgL.setAttribute("src", changeImageL(playerSelection))
     imgR.setAttribute("src", changeImageR(computerSelection))
     if (playerScore === 3 || computerScore === 3) {
