@@ -15,22 +15,43 @@ body {
     margin: auto;
 }
 
-div#result {
-    height: 300px;
+div#msg {
+    padding-top: 15px;
     color: #000;
+}
+
+div#result {
+    height: 100px;
+    color: #000;
+}
+
+div#img-res {
+    height: 125px;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
-div#playerChoice {
+#boxR, #boxL {
+    margin: 0 30px 0 30px;
+    width: 160px;
+    align-content: center;
+    padding-top: 10px;
+    background-color: navajowhite;
+    border-radius: 5px;
+}
+
+div#Choice {
     height: 200px;
     justify-content: center;
-    align-items: center;
+    padding-top: 25px;
 }
 
 button {
     margin: 0 20px 0 20px;
     background: transparent;
     border: none;
+}
+
+h2, p {
+    margin: 5px;
 }
