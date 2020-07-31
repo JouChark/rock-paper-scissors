@@ -1,8 +1,7 @@
 let playerSelection 
-let computerSelection = computerPlay()
+let computerSelection
 let playerScore = 0
 let computerScore = 0
-let round = 0
 
 function getInputValue(inputVal){
     playerSelection = inputVal
@@ -24,7 +23,8 @@ function computerPlay() {
 }
 
 function playRound() {
-    if (round <= 5) {
+    if (playerScore < 3 && computerScore < 3) {
+        computerSelection = computerPlay()
         showResult()
         round++
     }
@@ -49,14 +49,14 @@ function getResult(ps, cs) {
 function showResult() {
     let res = document.getElementById('res')
     let cont = document.getElementById('cont')
+    let fRes = document.getElementById('fRes')
     let imgR = document.getElementById('imgR')
     let imgL = document.getElementById('imgL')
-    let fRes = document.getElementById('fRes')
     res.innerHTML = getResult(playerSelection, computerSelection)
     cont.innerHTML = `Player ${playerScore} X ${computerScore} IA`
     imgL.setAttribute("src", changeImageL(playerSelection))
     imgR.setAttribute("src", changeImageR(computerSelection))
-    if (round === 5) {
+    if (playerScore === 3 || computerScore === 3) {
         fRes.innerHTML = getFinalScore(playerScore, computerScore)
     }
 }
@@ -90,5 +90,5 @@ function getFinalScore(playerScore, computerScore) {
         return 'You Win!'
     } else if(computerScore > playerScore) {
         return 'You Lose!'
-    } else {return "It's a Draw!"}
+    }
 }

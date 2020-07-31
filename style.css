@@ -3,16 +3,26 @@ body {
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    margin: 0;
-    padding: 0;
 }
 
 #main {
     background: #fff;
     width: 500px;
-    height: 500px;
+    max-height: 500px;
     border-radius: 5px;
     margin: auto;
+}
+
+@media (max-width: 450px) {
+    #main {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 400px) {
+    #main {
+        max-width: 350px;
+    }
 }
 
 div#msg {
@@ -29,6 +39,7 @@ div#img-res {
     height: 125px;
     display: flex;
     justify-content: center;
+    margin: 5px 0 15px 0;
 }
 
 #boxR, #boxL {
@@ -46,12 +57,28 @@ div#Choice {
     padding-top: 25px;
 }
 
-button {
+h1#title {
+    font-size: 2.5em;
+}
+
+button.value {
     margin: 0 20px 0 20px;
     background: transparent;
     border: none;
 }
 
+@media (max-width: 450px) {
+    button.value {
+        margin: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    button.value {
+        margin: 0;
+    }
+}
+
 h2, p {
-    margin: 5px;
+    margin: 15px;
 }

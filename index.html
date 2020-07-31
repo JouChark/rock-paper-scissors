@@ -8,16 +8,15 @@
 </head>
 <body>
     <header>
-        <h1>Rock Paper Scissors</h1>
+        <h1 id="title">Rock Paper Scissors</h1>
     </header>
     <main id="main">
         <div id="msg">
-                <h1>Make Your Choice</h1> 
+                <h1 id="fRes">Make Your Choice</h1> 
         </div>
         <div id="result">
+            <p id="cont"></p>
             <p id="res"></p>
-            <p id=cont></p>
-            <h2 id="fRes"></h2>
         </div>
         <div id="img-res">
             <div id="boxR">
@@ -28,9 +27,9 @@
             </div>
         </div>
         <div id="Choice">
-            <button id="rock" value="Rock" onclick="getInputValue(this.value); playRound()"><img src="images/rock.png" alt=""></button>
-            <button id="paper" value="Paper"  onclick="getInputValue(this.value); playRound()"><img src="images/paper.png" alt=""></button>
-            <button id="scissors" value="Scissors"  onclick="getInputValue(this.value); playRound()"><img src="images/scissors.png" alt=""></button>
+            <button class="value" value="Rock" onclick="getInputValue(this.value); playRound()"><img src="images/rock.png" alt=""></button>
+            <button class="value" value="Paper"  onclick="getInputValue(this.value); playRound()"><img src="images/paper.png" alt=""></button>
+            <button class="value" value="Scissors"  onclick="getInputValue(this.value); playRound()"><img src="images/scissors.png" alt=""></button>
         </div>
     </main>
     
