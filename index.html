@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Rock-Paper-Scissors</h1>
+        <h1>Rock Paper Scissors</h1>
     </header>
-    <div id="res"></div>
-    <div id="main">
-        <button id="rock" onclick="getInputValue(this.id)">Rock</button>
-        <button id="paper" onclick="getInputValue(this.id)">Paper</button>
-        <button id="scissors" onclick="getInputValue(this.id)">Scissors</button>
-    </div>
+    <main id="main">
+        <div id="result">
+            <h1 id="msg">Make Your Choice</h1>  
+        </div>
+        <div id="playerChoice">
+            <button id="rock" value="Rock" onclick="getInputValue(this.value)"><img src="images/rock.png" alt=""></button>
+            <button id="paper" value="Paper"  onclick="getInputValue(this.value)"><img src="images/paper.png" alt=""></button>
+            <button id="scissors" value="Scissors"  onclick="getInputValue(this.value)"><img src="images/scissors.png" alt=""></button>
+        </div>
+    </main>
+    
     <script src="script.js"></script>
 </body>
 </html>
