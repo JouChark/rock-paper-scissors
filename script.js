@@ -1,24 +1,11 @@
-let turn = 0
+let playerSelection 
+let computerSelection = computerPlay()
 let playerScore = 0
 let computerScore = 0
+let round = 0
 
 function getInputValue(inputVal){
-    let computerSelection = computerPlay()
-    let playerSelection = inputVal
-    let res = document.getElementById('res')
-    let imgR = document.getElementById('imgR')
-    let imgL = document.getElementById('imgL')
-    let cont = document.getElementById('cont')
-    let fRes = document.getElementById('fRes')
-    if (turn < 5) {
-        turn++
-        res.innerHTML = playRound(playerSelection, computerSelection)
-        cont.innerHTML = `Player ${playerScore} X ${computerScore} IA`
-        imgL.setAttribute("src", changeImageL(playerSelection))
-        imgR.setAttribute("src", changeImageR(computerSelection))
-    } else {
-        fRes.innerHTML = finalScore(playerScore, computerScore)
-    }
+    playerSelection = inputVal
 }
 
 function computerPlay() {
@@ -36,17 +23,41 @@ function computerPlay() {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
-    let cs = computerSelection
-    let ps = playerSelection
+function playRound() {
+    if (round <= 5) {
+        showResult()
+        round++
+    }
+}
+
+function getResult(ps, cs) {
     if (ps === cs) {
         return `Draw!`
-    } else if((ps === 'Rock' && cs === 'Scissors') || (ps === 'Paper' && cs === 'Rock') || (ps === 'Scissors' && cs === 'Paper')) {
-        playerScore++
-        return `${ps} beats ${cs}.`
-    } else if ((ps === 'Rock' && cs === 'Paper') || (ps === 'Paper' && cs === 'Scissors') || (ps === 'Scissors' && cs === 'Rock')){
-        computerScore ++
-        return `${cs} beats ${ps}.`
+    } else if((ps === 'Rock' && cs === 'Scissors') ||
+              (ps === 'Paper' && cs === 'Rock') || 
+              (ps === 'Scissors' && cs === 'Paper')) {
+                    playerScore++
+                    return `${ps} beats ${cs}.`
+    } else if ((ps === 'Rock' && cs === 'Paper') ||
+               (ps === 'Paper' && cs === 'Scissors') ||
+               (ps === 'Scissors' && cs === 'Rock')){
+                    computerScore ++
+                    return `${cs} beats ${ps}.`
+    }
+}
+
+function showResult() {
+    let res = document.getElementById('res')
+    let cont = document.getElementById('cont')
+    let imgR = document.getElementById('imgR')
+    let imgL = document.getElementById('imgL')
+    let fRes = document.getElementById('fRes')
+    res.innerHTML = getResult(playerSelection, computerSelection)
+    cont.innerHTML = `Player ${playerScore} X ${computerScore} IA`
+    imgL.setAttribute("src", changeImageL(playerSelection))
+    imgR.setAttribute("src", changeImageR(computerSelection))
+    if (round === 5) {
+        fRes.innerHTML = getFinalScore(playerScore, computerScore)
     }
 }
 
@@ -74,7 +85,7 @@ function changeImageR(imgR) {
     }
 }
 
-function finalScore(playerScore, computerScore) {
+function getFinalScore(playerScore, computerScore) {
     if(playerScore > computerScore){
         return 'You Win!'
     } else if(computerScore > playerScore) {
