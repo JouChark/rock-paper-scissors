@@ -26,7 +26,6 @@ function playRound() {
     if (playerScore < 3 && computerScore < 3) {
         computerSelection = computerPlay()
         showResult()
-        round++
     }
 }
 
