@@ -2,6 +2,13 @@ let playerSelection
 let computerSelection
 let playerScore = 0
 let computerScore = 0
+let res = document.getElementById('res')
+let score = document.getElementById('score')
+let fRes = document.getElementById('fRes')
+let imgR = document.getElementById('imgR')
+let imgL = document.getElementById('imgL')
+let oldDiv = document.querySelector('div#choice')
+let newDiv = document.querySelector('div#reset')
 
 function getInputValue(inputVal){
     playerSelection = inputVal
@@ -27,6 +34,9 @@ function playRound() {
         computerSelection = computerPlay()
         showResult()
     }
+    if (playerScore === 3 || computerScore === 3) {
+        gameOver()
+    }
 }
 
 function getResult(ps, cs) {
@@ -46,11 +56,6 @@ function getResult(ps, cs) {
 }
 
 function showResult() {
-    let res = document.getElementById('res')
-    let score = document.getElementById('score')
-    let fRes = document.getElementById('fRes')
-    let imgR = document.getElementById('imgR')
-    let imgL = document.getElementById('imgL')
     res.innerHTML = getResult(playerSelection, computerSelection)
     score.innerHTML = `<p><strong>Player</strong></p> <p>${playerScore} X ${computerScore}</p>
                     <p><strong>IA<strong></p>`
@@ -91,4 +96,21 @@ function getFinalScore(playerScore, computerScore) {
     } else if(computerScore > playerScore) {
         return 'You Lose!'
     }
+}
+
+function gameOver() {
+    oldDiv.setAttribute('id', 'reset')
+    newDiv.setAttribute('id', 'choice')
+}
+
+function resetGame() {
+    playerScore = 0
+    computerScore = 0
+    fRes.innerHTML = 'Make Your Choice'
+    score.innerHTML = `<p><strong>Player</strong></p> <p>0 X 0</p>
+                    <p><strong>IA<strong></p>`
+    imgL.setAttribute("src", '')
+    imgR.setAttribute("src", '')
+    oldDiv.setAttribute('id', 'choice')
+    newDiv.setAttribute('id', 'reset')
 }
