@@ -62,7 +62,7 @@ function showResult() {
     imgL.setAttribute("src", changeImageL(playerSelection))
     imgR.setAttribute("src", changeImageR(computerSelection))
     if (playerScore === 3 || computerScore === 3) {
-        fRes.innerHTML = getFinalScore(playerScore, computerScore)
+        fRes.textContent = getFinalScore(playerScore, computerScore)
     }
 }
 
@@ -106,7 +106,7 @@ function gameOver() {
 function resetGame() {
     playerScore = 0
     computerScore = 0
-    fRes.innerHTML = 'Make Your Choice'
+    fRes.textContent = 'Make Your Choice'
     score.innerHTML = `<p><strong>Player</strong></p> <p>0 X 0</p>
                     <p><strong>IA<strong></p>`
     imgL.setAttribute("src", '')
