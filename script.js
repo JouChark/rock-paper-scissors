@@ -9,6 +9,11 @@ let imgR = document.getElementById('imgR')
 let imgL = document.getElementById('imgL')
 let oldDiv = document.querySelector('div#choice')
 let newDiv = document.querySelector('div#reset')
+let btnRes = document.querySelector('button#reset-button')
+
+btnRes.addEventListener('click', () => {
+    resetGame()
+})
 
 function getInputValue(inputVal){
     playerSelection = inputVal
