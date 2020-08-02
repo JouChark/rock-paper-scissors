@@ -7,17 +7,19 @@ let score = document.getElementById('score')
 let fRes = document.getElementById('fRes')
 let imgR = document.getElementById('imgR')
 let imgL = document.getElementById('imgL')
-let oldDiv = document.querySelector('div#choice')
-let newDiv = document.querySelector('div#reset')
+let btn = document.querySelectorAll('button.value')
 let btnRes = document.querySelector('button#reset-button')
+
+btn.forEach((button) => {
+    button.addEventListener('click', () => {
+        playerSelection = button.value;
+        playRound()
+    })
+})
 
 btnRes.addEventListener('click', () => {
     resetGame()
 })
-
-function getInputValue(inputVal){
-    playerSelection = inputVal
-}
 
 function computerPlay() {
     let comPlayRan = Math.floor(Math.random() * 3)
@@ -35,11 +37,11 @@ function computerPlay() {
 }
 
 function playRound() {
-    if (playerScore < 3 && computerScore < 3) {
+    if (playerScore < 5 && computerScore < 5) {
         computerSelection = computerPlay()
         showResult()
     }
-    if (playerScore === 3 || computerScore === 3) {
+    if (playerScore === 5 || computerScore === 5) {
         gameOver()
     }
 }
@@ -66,7 +68,7 @@ function showResult() {
                     <p><strong>IA<strong></p>`
     imgL.setAttribute("src", changeImageL(playerSelection))
     imgR.setAttribute("src", changeImageR(computerSelection))
-    if (playerScore === 3 || computerScore === 3) {
+    if (playerScore === 5 || computerScore === 5) {
         fRes.textContent = getFinalScore(playerScore, computerScore)
     }
 }
@@ -104,6 +106,8 @@ function getFinalScore(playerScore, computerScore) {
 }
 
 function gameOver() {
+    let oldDiv = document.querySelector('div#choice')
+    let newDiv = document.querySelector('div#reset')
     oldDiv.setAttribute('id', 'reset')
     newDiv.setAttribute('id', 'choice')
 }
@@ -111,11 +115,11 @@ function gameOver() {
 function resetGame() {
     playerScore = 0
     computerScore = 0
-    fRes.textContent = 'Make Your Choice'
+    res.innerHTML = 'Make Your Choice'
+    fRes.textContent = "Let's Play"
     score.innerHTML = `<p><strong>Player</strong></p> <p>0 X 0</p>
                     <p><strong>IA<strong></p>`
     imgL.setAttribute("src", '')
     imgR.setAttribute("src", '')
-    oldDiv.setAttribute('id', 'choice')
-    newDiv.setAttribute('id', 'reset')
+    gameOver()
 }
