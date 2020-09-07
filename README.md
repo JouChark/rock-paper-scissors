@@ -3,4 +3,4 @@ A simple game of rock-paper-scissors for the [Odin Project curriculum](https://w
 
 Made with JavaScript, HTML and CSS
 
-Can be seen [here](https://jouchark.github.io/rock-paper-scissors/)
+Can be played [here](https://uauramenezes.github.io/rock-paper-scissors/)
