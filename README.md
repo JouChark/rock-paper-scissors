@@ -12,4 +12,4 @@ Can be played [here](https://uauramenezes.github.io/rock-paper-scissors/)
 ## About
 The objective of this project was to practice the fundamentals of web development.
 
-It uses crucial concepts like control flow, DOM manipulation and event listeners. Furthermore, it also uses concepts like responsive web design with @media.
+It uses crucial JavaScript concepts like control flow, DOM manipulation and event listeners. Furthermore, it also uses CSS concepts like responsive web design with @media.
